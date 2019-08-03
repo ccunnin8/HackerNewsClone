@@ -1,14 +1,13 @@
-import React, {Suspense} from "react";
+import React, {Suspense, Lazy } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; 
 import Nav from "./components/Nav";
-import Stories from "./components/Stories"
 import Loading from "./components/Loading";
-import User from "./components/User";
-import Post from "./components/Post";
 import { ThemeProvider } from "./context/theme";
-
+const Stories = React.lazy(() => import("./components/Stories"));
+const User = React.lazy(() => import("./components/User"));
+const Post = React.lazy(() => import("./components/Post"));
 class App extends React.Component {
     state = {
         theme: "light",
